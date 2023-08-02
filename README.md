@@ -76,6 +76,17 @@ Head over to the `_posts` directory to view all the posts that are currently on 
 
 For a full local installation of Millennial, [download your own copy of Millennial](https://github.com/LeNPaul/Millennial/archive/gh-pages.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, enter `bundle install`, and then enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
 
+#### Build
+```
+export JEKYLL_VERSION=4.2.0
+docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build
+```
+
+#### Running
+```
+docker run --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 -it jekyll/jekyll:$JEKYLL_VERSION jekyll serve --watch --drafts
+```
+
 ### Directory Structure
 
 If you are familiar with Jekyll, then the Millennial directory structure shouldn't be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the [Jekyll documentation site](https://jekyllrb.com/docs/structure/).
